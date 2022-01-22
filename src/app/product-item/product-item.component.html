@@ -1,0 +1,13 @@
+<div class="product-container">
+  <img class="product-image" src="{{ productItem.url }}" alt="Product placeholder image">
+  <h3>{{ productItem.name }}</h3>
+  <p>{{ productItem.price}}</p>
+  <form (ngSubmit)="submitAddToCart()">
+    <select class="select-input" name="quantity" [(ngModel)]="quantity">
+      <option *ngFor="let number of quantityrange" [ngValue]="number">
+        {{ number }}
+      </option>
+    </select>
+    <button type="submit">Add to cart</button>
+  </form>
+</div>

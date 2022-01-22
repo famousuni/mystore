@@ -1,0 +1,35 @@
+<div class="empty-cart-message" *ngIf="productsInCart.length == 0">
+  <h1>No items in cart!</h1>
+</div>
+
+<div class="cart-container">
+  <div class="cart-panel">
+    <div class="cart-item" *ngFor="let cartItem of productsInCart">
+      <img class="product-image" src="{{ cartItem.url }}" >
+      <div class="cart-item-details">
+        <p><strong>{{ cartItem.name }}</strong></p>
+        <p>{{ cartItem.price }}</p>
+        <div>
+          <label>Amount:</label>
+          <input class="number-input"
+                 type="number"
+                 name="{{ cartItem.id }}"
+                 value="{{ cartItem.quantity}}"
+                 min="1"
+                 [(ngModel)]="cartItem.quantity"
+                 (ngModelChange)="updateCart(cartItem)">
+        </div>
+        <button (click)="removeItem(cartItem)">Remove from cart</button>
+      </div>
+    </div>
+    <form>
+      <h1 id="totalPrice" *ngIf="productsInCart.length > 0">Total: ${{ totalPrice.toFixed(2) }}</h1>
+    </form>
+  </div>
+
+
+
+
+
+
+</div>
