@@ -10,6 +10,7 @@
         <p><strong>{{ cartItem.name }}</strong></p>
         <p>{{ cartItem.price }}</p>
         <div>
+          <p>
           <label>Amount:</label>
           <input class="number-input"
                  type="number"
@@ -18,6 +19,7 @@
                  min="1"
                  [(ngModel)]="cartItem.quantity"
                  (ngModelChange)="updateCart(cartItem)">
+          </p>
         </div>
         <button (click)="removeItem(cartItem)">Remove from cart</button>
       </div>
@@ -27,7 +29,18 @@
     </form>
   </div>
 
-
+  <div class="cart-panel" *ngIf="productsInCart.length > 0">
+    <form class="form-margin" #form="ngForm" (ngSubmit)="submitOrder()">
+      <p>Full Name</p>
+      <input type="text" name="fullName" class="input-box" required placeholder="(minimum 3 characters)" minlength="3" [(ngModel)]="fullName">
+      <p>Address</p>
+      <input type="text" name="address" class="input-box" required placeholder="(minimum 6 characters)" minlength="10" [(ngModel)]="address">
+      <p>Credit Card Number</p>
+      <input type="text" name="ccNum" class="input-box" required placeholder="(minimum 16-digit number)" minlength="16" maxlength="16" [(ngModel)]="ccNumber">
+      <p class="small-text">We'll never share your payment details with anyone else</p>
+      <button [disabled]="form.invalid">Submit order</button>
+    </form>
+  </div>
 
 
 

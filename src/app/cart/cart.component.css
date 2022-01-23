@@ -1,5 +1,5 @@
 img {
-  width: 100px;
+  width: 140px;
   border-radius: 10px;
 }
 
@@ -24,6 +24,7 @@ img {
 .number-input {
   width: 80px;
   text-align: center;
+  margin-left: 5px;
 }
 
 .cart-container {
@@ -42,4 +43,34 @@ img {
   display: flex;
   justify-content: center;
   margin-top: 64px;
+}
+
+.input-box {
+  width: 100%;
+  font-size: .95em;
+  padding: 4px;
+}
+
+.small-text {
+  font-size: .75em;
+  opacity: 50%;
+}
+
+.form-margin button,
+.cart-item-details button {
+  background: #333;
+  display: block;
+  color: white;
+  border-color: transparent;
+  margin: 10px 0px;
+}
+
+.form-margin button {
+  width: 50%;
+}
+
+.cart-item-details p {
+  margin: 10px 0px 10px 0px;
+  white-space: nowrap;
+  overflow: hidden;
 }

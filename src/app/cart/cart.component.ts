@@ -11,6 +11,13 @@ export class CartComponent implements OnInit {
   productsInCart: Product[] = []
   totalPrice: number = 0
 
+  fullName: string = ''
+  address: string = ''
+  ccNumber: string = ''
+
+
+
+
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -48,5 +55,8 @@ export class CartComponent implements OnInit {
     return totalPrice
   }
 
+  submitOrder(): void {
+    console.log(this.fullName)
+  }
 
 }
