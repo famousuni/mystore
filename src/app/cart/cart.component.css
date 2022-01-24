@@ -65,6 +65,16 @@ img {
   margin: 10px 0px;
 }
 
+.form-margin button:active,
+.cart-item-details button:active {
+  background: dimgrey;
+}
+
+.form-margin button:disabled {
+  background: darkgrey;
+}
+
+
 .form-margin button {
   width: 50%;
 }
