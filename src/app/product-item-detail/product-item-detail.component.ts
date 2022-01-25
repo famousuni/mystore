@@ -34,6 +34,7 @@ export class ProductItemDetailComponent implements OnInit {
     }
     this.cartService.addtoCart(product)
     alert(`${product.name} x ${product.quantity} added to cart!`)
+    this.quantity = 1
   }
 
 

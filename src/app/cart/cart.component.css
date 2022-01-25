@@ -84,3 +84,7 @@ img {
   white-space: nowrap;
   overflow: hidden;
 }
+
+.errors {
+  color: red;
+}
