@@ -56,6 +56,12 @@ export class ProductService {
    return this.productList
   }
 
+  // getProductByID takes in an number and returns the corresponding Product object
+  getProductByID(productID: number): Product {
+    let product = this.productList.find((productlistitem) => productlistitem.id == productID) as Product
+    return product
+  }
+
 
 
 }

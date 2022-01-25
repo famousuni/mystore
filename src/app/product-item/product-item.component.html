@@ -1,5 +1,7 @@
 <div class="product-container">
+  <a routerLink="/products/{{ productItem.id }}">
   <img class="product-image" src="{{ productItem.url }}" alt="Product placeholder image">
+  </a>
   <h3>{{ productItem.name }}</h3>
   <p>{{ productItem.price}}</p>
   <form (ngSubmit)="submitAddToCart()">

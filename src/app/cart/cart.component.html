@@ -1,7 +1,8 @@
-<div class="empty-cart-message" *ngIf="productsInCart.length == 0">
+<div class="empty-cart-message" *ngIf="productsInCart.length == 0; else elseBlock">
   <h1>No items in cart!</h1>
 </div>
 
+<ng-template #elseBlock>
 <div class="cart-container">
   <div class="cart-panel">
     <div class="cart-item" *ngFor="let cartItem of productsInCart">
@@ -25,11 +26,11 @@
       </div>
     </div>
     <form>
-      <h1 id="totalPrice" *ngIf="productsInCart.length > 0">Total: ${{ totalPrice.toFixed(2) }}</h1>
+      <h1 id="totalPrice">Total: ${{ totalPrice.toFixed(2) }}</h1>
     </form>
   </div>
 
-  <div class="cart-panel" *ngIf="productsInCart.length > 0">
+  <div class="cart-panel">
     <form class="form-margin" #form="ngForm" (ngSubmit)="submitOrder()">
       <p>Full Name</p>
       <input type="text" name="fullName" class="input-box" required placeholder="(minimum 3 characters)" minlength="3" [(ngModel)]="fullName">
@@ -41,8 +42,5 @@
       <button [disabled]="form.invalid">Submit order</button>
     </form>
   </div>
-
-
-
-
 </div>
+</ng-template>
