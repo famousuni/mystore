@@ -1,0 +1,32 @@
+.confirmation-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8%;
+}
+
+.confirmation-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirmation-header {
+  color: #333;
+}
+
+.confirmation-item {
+  margin-bottom: 30px;
+}
+
+button {
+  margin: auto;
+  background: #333;
+  display: block;
+  color: white;
+  border-color: transparent;
+}
+
+button:active {
+  background: dimgrey;
+}

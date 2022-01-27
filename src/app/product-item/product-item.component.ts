@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {Product} from "../models/product";
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
+import { Product } from '../models/product'
 
 @Component({
   selector: 'app-product-item',
@@ -7,7 +7,7 @@ import {Product} from "../models/product";
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
-  @Input() productItem:Product
+  @Input() productItem: Product
   @Output() addToCart: EventEmitter<Product> = new EventEmitter()
 
   quantity: number = 1
@@ -23,8 +23,7 @@ export class ProductItemComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   //submitAddtoCart will update the create a new product object with quantity and emit it as an event to the parent (Product-List)
   submitAddToCart(): void {
@@ -41,5 +40,4 @@ export class ProductItemComponent implements OnInit {
     //reset the form value
     this.quantity = 1
   }
-
 }

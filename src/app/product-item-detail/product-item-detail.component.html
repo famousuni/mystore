@@ -1,8 +1,6 @@
 <div class="detail-container" *ngIf="productItem == undefined; else elseBlock">
   <a routerLink="/">
-    <h1 routerLink="/">
-      We couldn't find the product you're looking for!
-    </h1>
+    <h1 routerLink="/">We couldn't find the product you're looking for!</h1>
   </a>
 </div>
 
@@ -14,13 +12,21 @@
       <p>${{ productItem.price }}</p>
       <p>{{ productItem.description }}</p>
       <div>
-        <select class="select-input" [(ngModel)]="quantity" name="{{ productItem.id }}">
+        <select
+          class="select-input"
+          [(ngModel)]="quantity"
+          name="{{ productItem.id }}"
+        >
           <option *ngFor="let number of quantityrange" [ngValue]="number">
             {{ number }}
           </option>
         </select>
         <p><button type="submit">Add to cart</button></p>
-        <p><a class="back-link" routerLink="/products">&larr; Back to product list</a></p>
+        <p>
+          <a class="back-link" routerLink="/products"
+            >&larr; Back to product list</a
+          >
+        </p>
       </div>
     </div>
   </form>

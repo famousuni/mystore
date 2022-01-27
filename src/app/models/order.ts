@@ -1,13 +1,17 @@
-export class OrderProduct {
-  id: number
-  quantity: number
-  order_id: number
-  product_id: number
+import { Product } from './product'
+
+export class OrderInfo {
+  fullName: string
+  address: string
+  ccNumber: string
+  totalPrice: number
+  cartItems: Product[]
 
   constructor() {
-    this.id = 1
-    this.quantity = 0
-    this.order_id = 0
-    this.product_id = 0
+    this.fullName = ''
+    this.address = ''
+    this.ccNumber = ''
+    this.totalPrice = 0
+    this.cartItems = []
   }
 }

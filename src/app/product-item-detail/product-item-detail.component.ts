@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { Product } from '../models/product'
-import { ProductService } from "../services/product.service";
-import { CartService } from "../services/cart.service"
-import { ActivatedRoute } from "@angular/router";
+import { ProductService } from '../services/product.service'
+import { CartService } from '../services/cart.service'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-product-item-detail',
@@ -15,8 +15,11 @@ export class ProductItemDetailComponent implements OnInit {
   quantityrange: number[] = [1, 2, 3, 4, 5]
   id: number = 0
 
-
-  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private cartService: CartService) { }
+  constructor(
+    private productService: ProductService,
+    private activatedRoute: ActivatedRoute,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id']
@@ -36,6 +39,4 @@ export class ProductItemDetailComponent implements OnInit {
     alert(`${product.name} x ${product.quantity} added to cart!`)
     this.quantity = 1
   }
-
-
 }

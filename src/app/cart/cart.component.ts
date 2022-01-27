@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { Product } from '../models/product'
-import { CartService } from "../services/cart.service";
+import { CartService } from '../services/cart.service'
+import { Router } from '@angular/router'
+import { OrderInfo } from '../models/order'
 
 @Component({
   selector: 'app-cart',
@@ -15,10 +17,7 @@ export class CartComponent implements OnInit {
   address: string = ''
   ccNumber: string = ''
 
-
-
-
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
     this.productsInCart = this.cartService.getCart()
@@ -56,7 +55,21 @@ export class CartComponent implements OnInit {
   }
 
   submitOrder(): void {
-    console.log(this.fullName)
+    const orderInfo: OrderInfo = {
+      fullName: this.fullName,
+      ccNumber: this.ccNumber,
+      address: this.address,
+      totalPrice: this.totalPrice,
+      cartItems: this.productsInCart
+    }
+    this.cartService.setOrderInfo(orderInfo)
+    this.router.navigate(['/confirmation'])
+    // empty cart since order has been submitted
+    this.productsInCart = this.cartService.emptyCart()
+    // clear vars
+    this.fullName = ''
+    this.ccNumber = ''
+    this.address = ''
+    this.totalPrice = 0
   }
-
 }

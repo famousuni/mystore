@@ -1,33 +1,29 @@
-import { Injectable } from '@angular/core';
-import { OrderProduct } from "../models/order"
-import { Product } from "../models/product";
+import { Injectable } from '@angular/core'
+import { Product } from '../models/product'
+import { OrderInfo } from '../models/order'
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   cartItems: Product[] = []
+  orderInfo: OrderInfo = {
+    fullName: '',
+    ccNumber: '',
+    cartItems: [],
+    address: '',
+    totalPrice: 0
+  }
 
-  constructor() { }
+  constructor() {}
 
   addtoCart(product: Product): void {
-    console.log('cart before add:', this.cartItems)
-    console.log('cart sevice qty:', product.quantity)
-    const cartProduct = this.cartItems.find(
-      (item) => item.id == product.id
-    )
-    console.log("cart list:", this.cartItems)
-    console.log("cart find p:", product)
+    const cartProduct = this.cartItems.find((item) => item.id == product.id)
     if (cartProduct?.quantity && product?.quantity) {
-      console.log('p qty', product.quantity)
-      console.log('c qty', cartProduct.quantity)
       cartProduct.quantity += product.quantity
     } else {
-      console.log('here')
       this.cartItems.push(product)
     }
-    console.log(`cart service added ${product.name}`)
-    console.log('cart after add:', this.cartItems)
   }
 
   getCart(): Product[] {
@@ -37,9 +33,7 @@ export class CartService {
   // updateCart will replace the items quantity with the quantity of the item
   // passed in if it exists in the cart. This is used from the cart component
   updateCart(updatedItem: Product): Product[] {
-    const cartProduct = this.cartItems.find(
-      (item) => item.id == updatedItem.id
-    )
+    const cartProduct = this.cartItems.find((item) => item.id == updatedItem.id)
     if (cartProduct?.quantity && updatedItem?.quantity) {
       cartProduct.quantity = updatedItem.quantity
     }
@@ -55,4 +49,19 @@ export class CartService {
     return this.cartItems
   }
 
+  // setOrderInfo will take an order info objects at set it into the cart services local variable
+  setOrderInfo(orderInfo: OrderInfo): void {
+    this.orderInfo = orderInfo
+  }
+
+  // getOrderINfo will return the object within the local orderInfo variable
+  getOrderInfo(): OrderInfo {
+    return this.orderInfo
+  }
+
+  // emptyCart can be called to remove all items from a cart. This is done once an order is submitted.
+  emptyCart(): Product[] {
+    this.cartItems = []
+    return this.cartItems
+  }
 }
