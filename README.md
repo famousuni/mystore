@@ -18,6 +18,7 @@ The confirmation page will show the users name and total price of item purchased
 
 ## Command Usage
 'ng build' - This will compile the TS to JS and output it in the dist directory.
+
 'ng serve' - This will start the server and listen on http://localhost:4200
 
 
