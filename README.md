@@ -2,7 +2,7 @@
 
 This project is a frontend Angular application for a storefront.
 
-#Description
+## Description
 It populates the store items from data.json and allows users to add items to their cart by quantity.
 Clicking on each items picture will take you to a detail page for each product with also allows the user to add the item to their cart.
 The cart section of the app will dynamically generate a total price based on items in the cart and
