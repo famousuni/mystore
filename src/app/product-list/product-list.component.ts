@@ -17,7 +17,9 @@ export class ProductListComponent implements OnInit {
   products: Product[] = []
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts()
+    this.productService.getProducts().subscribe((res) => {
+      this.products = res
+    })
   }
 
   // addToCart will receive the event emitted from product-item and pass it to the cart service's addtocart method
